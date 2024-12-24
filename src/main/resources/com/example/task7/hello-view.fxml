@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.task7.HelloController">
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.task7.HelloController">
   <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    <Insets bottom="10" left="10" right="10" top="10" />
   </padding>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+  <!-- Canvas для анимации -->
+  <Canvas fx:id="canvas" height="200" width="200" />
+
+  <!-- Таймер -->
+  <HBox alignment="CENTER" spacing="10">
+    <Label text="Таймер" />
+    <TextField fx:id="timerField" promptText="Время" />
+    <Label text="Период" />
+    <TextField fx:id="repeatField" promptText="Повтор" />
+    <Button fx:id="startButton" onAction="#start"  text="Начать" />
+    <Button fx:id="stopButton" onAction="#stop"  text="Остановить" />
+    <Button fx:id="resetButton" onAction="#reset"  text="Очистить" />
+  </HBox>
+
+  <!-- Состояние таймера -->
+  <Label fx:id="statusLabel" text="Таймер неактивен" />
+
+  <!-- Прошло_с -->
+  <HBox alignment="CENTER" spacing="10">
+    <Label text="Прошло_с" />
+    <TextField fx:id="textField" editable="false" prefWidth="200" />
+    <Button fx:id="textStartButton" onAction="#startText"  text="Начать" />
+    <Button fx:id="textStopButton" onAction="#stopText"  text="Остановить" />
+  </HBox>
+
+  <!-- Звонок -->
+  <HBox alignment="CENTER" spacing="10">
+    <Label text="Звук" />
+    <TextField fx:id="bellField" promptText="Звук" />
+    <Button fx:id="bellStartButton" onAction="#startBell"  text="Начать" />
+    <Button fx:id="bellStopButton" onAction="#stopBell"  text="Остановить" />
+  </HBox>
+
+  <!-- Песочные часы -->
+  <HBox alignment="CENTER" spacing="10">
+    <Label text="Анимация" />
+    <Button fx:id="clockStartButton" onAction="#startClock"  text="Начать" />
+    <Button fx:id="clockStopButton" onAction="#stopClock"  text="Остановить" />
+  </HBox>
 </VBox>
